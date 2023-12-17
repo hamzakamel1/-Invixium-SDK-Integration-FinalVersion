@@ -1,16 +1,16 @@
-import os
 import clr
 import logging
 import datetime
 from dataclasses import dataclass
 from dotenv import load_dotenv
-import Config
+import os
+import sys
 
 # Load environment variables from .env file
 load_dotenv()
 
 # Check the value of get_data_fromTXTfile
-get_data_fromTXTfile = os.environ.get("get_data_fromTXTfile", "0")
+get_data_fromTXTfile = os.environ.get("get_data_fromTXTfile", "1")
 
 if get_data_fromTXTfile == "1":
     # Import values from the configuration file
@@ -19,19 +19,20 @@ else:
     # Values are not set in the configuration file, use default values
     from dataclasses import dataclass
 
-    @dataclass
-    class DeviceConfig:
-        IP: str = "192.168.200.85"
-        port: int = 9734
+@dataclass
+class DeviceConfig:
+    IP: str
+    port: int
 
 # Add references to the required DLL files
 clr.AddReference('System')
-clr.AddReference('C:/Users/hamza/OneDrive/Desktop/Test3/SDK/Newtonsoft.Json.dll')
-clr.AddReference('C:/Users/hamza/OneDrive/Desktop/Test3/SDK/IXMDemo.Common.dll')
-clr.AddReference('C:/Users/hamza/OneDrive/Desktop/Test3/SDK/IXMSoft.Business.Managers.dll')
-clr.AddReference('C:/Users/hamza/OneDrive/Desktop/Test3/SDK/IXMSoft.Business.SDK.dll')
-clr.AddReference('C:/Users/hamza/OneDrive/Desktop/Test3/SDK/IXMSoft.Common.Models.dll')
-clr.AddReference('C:/Users/hamza/OneDrive/Desktop/Test3/SDK/IXMSoft.Data.DataAccess.dll')
+dll_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'SDK')
+clr.AddReference(os.path.join(dll_folder, 'Newtonsoft.Json.dll'))
+clr.AddReference(os.path.join(dll_folder, 'IXMDemo.Common.dll'))
+clr.AddReference(os.path.join(dll_folder, 'IXMSoft.Business.Managers.dll'))
+clr.AddReference(os.path.join(dll_folder, 'IXMSoft.Business.SDK.dll'))
+clr.AddReference(os.path.join(dll_folder, 'IXMSoft.Common.Models.dll'))
+clr.AddReference(os.path.join(dll_folder, 'IXMSoft.Data.DataAccess.dll'))
 
 from System import DateTime
 from IXMSoft.Common.Models import TransactionLogArg, TransactionLog, Device
@@ -40,23 +41,15 @@ from IXMSoft.Business.SDK.Data import DeviceConnectionType, TransactionLogEventT
 from IXMSoft.Business.SDK import NetworkConnection, TransactionLogManager
 
 @dataclass
-class DeviceConfig:
-    IP: str = Config.DEVICE_IP
-    port: int = Config.DEVICE_PORT
-
-@dataclass
 class TransactionLogData:
     UserRecordId: str
     check_date: str
     check_time: str
 
 # Configure logging
-print(Config.LOG_FILE)
-logging.basicConfig(filename=Config.LOG_FILE, level=logging.INFO,
+log_file_path = os.path.join(Config.LOGS_FOLDER, 'app.log')
+logging.basicConfig(filename=log_file_path, level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
-
-def get_full_path(relative_path):
-    return os.path.join(os.path.dirname(os.path.abspath(__file__)), relative_path)
 
 def check_device_status(device):
     try:
@@ -114,11 +107,10 @@ def get_transaction_logs(conn, device, start_date, end_date):
 
     return transaction_logs
 
-def setup_device():
-    device_config = DeviceConfig()
+def setup_device(ip_address, port):
     device = Device()
-    device.IPaddress = device_config.IP
-    device.Port = str(device_config.port)  # Convert port to string
+    device.IPaddress = ip_address
+    device.Port = port
     device.ConnectionType = DeviceConnectionType.Ethernet
 
     is_connected = check_device_status(device)
@@ -152,26 +144,28 @@ def main():
     end_date_dotnet = DateTime(end_date.year, end_date.month, end_date.day,
                                end_date.hour, end_date.minute, end_date.second)
 
-    device = setup_device()
-    if check_device_status(device):
-        conn = NetworkConnection(device)
-        try:
-            conn.OpenConnection()
-            logs = get_transaction_logs(conn, device, start_date_dotnet, end_date_dotnet)  # Pass device as a parameter
-            log_file_name = f"{device.IPaddress}_{end_date.strftime('%d_%m_%Y_%H_%M_%S')}.txt"
-            log_file_path = get_full_path(os.path.join(Config.LOGS_FOLDER, log_file_name))
+    # Iterate through both lists of IP addresses and ports
+    for ip_address, port in zip(Config.DEVICE_IPS, Config.DEVICE_PORTS):
+        device = setup_device(ip_address, port)
+        if check_device_status(device):
+            conn = NetworkConnection(device)
+            try:
+                conn.OpenConnection()
+                logs = get_transaction_logs(conn, device, start_date_dotnet, end_date_dotnet)
+                log_file_name = f"{ip_address}_{port}_{end_date.strftime('%d_%m_%Y_%H_%M_%S')}.txt"
+                log_file_path = os.path.join(Config.LOGS_FOLDER, log_file_name)
 
-            with open(log_file_path, 'w') as writer:
-                for log in logs:
-                    writer.write(f"{log.UserRecordId};{log.check_date};{log.check_time}\n")
+                with open(log_file_path, 'w') as writer:
+                    for log in logs:
+                        writer.write(f"{log.UserRecordId};{log.check_date};{log.check_time}\n")
 
-            # Log the return values
-            logging.info(f"DeviceConfig: {device}")
-            logging.info(f"TransactionLogData: {logs}")
-        except Exception as ex:
-            logging.error(f"Error in main function: {ex}", exc_info=True)
-        finally:
-            conn.CloseConnection()
+                # Log the return values
+                logging.info(f"DeviceConfig: {device}")
+                logging.info(f"TransactionLogData: {logs}")
+            except Exception as ex:
+                logging.error(f"Error in main function: {ex}", exc_info=True)
+            finally:
+                conn.CloseConnection()
 
     end_time = datetime.datetime.now()
     logging.info(f"Script finished at {end_time}")
