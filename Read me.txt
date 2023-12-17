@@ -1,0 +1,39 @@
+
+Invixium SDK Integration with Python in .NET
+
+This project focuses on integrating the Invixium SDK with Python within a .NET environment. While working on this integration, we have encountered some challenges, especially related to handling DLL files. In this README, we will discuss the steps and issues involved in using the SDK in .NET with Python.
+
+Overview
+The main goal of this project is to enable the use of the Invixium SDK in a .NET application that incorporates Python. To achieve this, we need to overcome some hurdles related to DLL files.
+
+Challenges
+1. Reading DLL Files
+When dealing with DLL files, there are two primary ways to access their contents:
+
+a. Visual Studio
+You can read DLL files directly from Visual Studio. However, this approach may require additional configuration.
+
+To use this method, follow these steps:
+
+Right-click on the DLL file in Visual Studio.
+
+Go to the properties of the file.
+
+Ensure that the file is unlocked so that it can be accessed by your Python code.
+
+b. .NET Reflector
+Another option is to read DLL files using .NET Reflector. This tool allows you to inspect the contents of DLL files in a more detailed manner.
+
+To use this method, follow these steps:
+
+Open the DLL file with .NET Reflector.
+
+Check the .NET version associated with the DLL file. If .NET Reflector indicates a version mismatch, you may need to convert the DLL file to the appropriate version. This might involve upgrading or downgrading the DLL to match the required .NET version.
+
+2. Compatibility Checks
+It's crucial to verify the compatibility of DLL files with your project. Each DLL file is associated with a specific .NET version, and it's essential to ensure that the versions match to prevent compatibility issues.
+
+Conclusion
+In summary, this project aims to integrate the Invixium SDK with Python in a .NET environment. We've outlined the challenges involved in working with DLL files and provided steps to address these challenges. By following these instructions, you can successfully use the SDK in your .NET project with Python integration.
+
+Please refer to the documentation or project-specific resources for further details and specific implementation steps.
