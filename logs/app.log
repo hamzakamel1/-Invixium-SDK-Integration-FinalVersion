@@ -1,0 +1,25 @@
+2023-12-18 14:13:35,368 - INFO - -----Script started at 2023-12-18 14:13:35.368986-----
+2023-12-18 14:13:35,453 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 14:13:35,453 - INFO - Network Status: Connected
+2023-12-18 14:13:35,453 - INFO - Network Status: Connected
+2023-12-18 14:13:35,520 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 14:13:35,520 - INFO - Network Status: Connected
+2023-12-18 14:13:39,600 - ERROR - Error fetching transaction logs from API: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /attendance/devices/logs/addApiIXM (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B21D4E6110>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2023-12-18 14:13:48,747 - INFO - -----Script started at 2023-12-18 14:13:48.747097-----
+2023-12-18 14:13:48,811 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 14:13:48,811 - INFO - Network Status: Connected
+2023-12-18 14:13:48,811 - INFO - Network Status: Connected
+2023-12-18 14:13:48,877 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 14:13:48,877 - INFO - Network Status: Connected
+2023-12-18 14:13:50,154 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-18 14:13:50,154 - INFO - Network Status: Connected
+2023-12-18 14:13:50,154 - INFO - Network Status: Connected
+2023-12-18 14:13:50,304 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-18 14:13:50,304 - INFO - Network Status: Connected
+2023-12-18 14:13:50,996 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-18 14:13:50,996 - INFO - Network Status: Connected
+2023-12-18 14:13:50,996 - INFO - Network Status: Connected
+2023-12-18 14:13:51,406 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-18 14:13:51,406 - INFO - Network Status: Connected
+2023-12-18 14:13:51,596 - INFO - -----Script finished at 2023-12-18 14:13:51.596836-----
+2023-12-18 14:13:51,596 - INFO - Total execution time: 0:00:02.849739
