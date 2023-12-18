@@ -5,24 +5,8 @@ from dataclasses import dataclass
 from dotenv import load_dotenv
 import os
 import sys
-
-# Load environment variables from .env file
-load_dotenv()
-
-# Check the value of get_data_fromTXTfile
-get_data_fromTXTfile = os.environ.get("get_data_fromTXTfile", "1")
-
-if get_data_fromTXTfile == "1":
-    # Import values from the configuration file
-    import Config
-else:
-    # Values are not set in the configuration file, use default values
-    from dataclasses import dataclass
-
-@dataclass
-class DeviceConfig:
-    IP: str
-    port: int
+import requests
+import Config
 
 # Add references to the required DLL files
 clr.AddReference('System')
@@ -39,6 +23,22 @@ from IXMSoft.Common.Models import TransactionLogArg, TransactionLog, Device
 from IXMSoft.Business.SDK import *
 from IXMSoft.Business.SDK.Data import DeviceConnectionType, TransactionLogEventType
 from IXMSoft.Business.SDK import NetworkConnection, TransactionLogManager
+
+
+# Import the configuration variables from config.py
+from Config import get_data_fromTXTfile
+
+if get_data_fromTXTfile == 1:
+    # Import values from the configuration file
+    import Config
+else:
+    # Values are not set in the configuration file, use default values
+    from dataclasses import dataclass
+
+@dataclass
+class DeviceConfig:
+    IP: str
+    port: int
 
 @dataclass
 class TransactionLogData:
@@ -73,7 +73,32 @@ def check_device_status(device):
         logging.error(f"Error checking device status: {ex}")
         return False
 
-# Modify the get_transaction_logs function to accept the device parameter
+def create_log_folder(ip_address):
+    timestamp = datetime.datetime.now()
+    folder_name = f"{ip_address}_{timestamp.strftime('%Y-%m-%d_%H-%M-%S')}"
+    log_folder_path = os.path.join(Config.LOGS_FOLDER, folder_name)
+    os.makedirs(log_folder_path, exist_ok=True)
+    return log_folder_path
+
+def create_txt_log_file(log_folder, logs):
+    txt_log_file_name = "transaction_logs.txt"  # Adjust the desired name for the txt file
+    txt_log_file_path = os.path.join(log_folder, txt_log_file_name)
+
+    with open(txt_log_file_path, 'a') as writer:
+        writer.write(f"{'-' * 5}({datetime.datetime.now()}){'-' * 5}\n")
+        for log in logs:
+            writer.write(f"{log.UserRecordId};{log.check_date};{log.check_time}\n")
+
+def create_log_app_file(log_folder, device, additional_info=None):
+    log_app_file_name = f"{device.IPaddress}_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
+    log_app_file_path = os.path.join(log_folder, log_app_file_name)
+
+    with open(log_app_file_path, 'a') as app_writer:
+        app_writer.write(f"{'-' * 5}({datetime.datetime.now()}){'-' * 5}\n")
+        app_writer.write(f"{datetime.datetime.now()} - INFO - Successfully connected to {device.IPaddress}:{device.Port}\n")
+        if additional_info:
+            app_writer.write(f"{datetime.datetime.now()} - INFO - {additional_info}\n")
+
 def get_transaction_logs(conn, device, start_date, end_date):
     transaction_log_arguments = TransactionLogArg()
     transaction_log_arguments.StartDate = start_date
@@ -104,6 +129,7 @@ def get_transaction_logs(conn, device, start_date, end_date):
         logging.error(f"Error retrieving transaction logs: {ex}")
         conn.CloseConnection()
         conn.Dispose()
+        create_log_app_file(device, f"Error retrieving transaction logs: {ex}")
 
     return transaction_logs
 
@@ -119,13 +145,43 @@ def setup_device(ip_address, port):
 
     return device
 
-def print_logs(logs):
-    for log in logs:
-        print(f"UserRecordId: {log.UserRecordId}, Check Date: {log.check_date}, Check Time: {log.check_time}")
+def get_transaction_logs_from_api(device, conn):
+    try:
+        api_endpoint = "http://localhost:8000/attendance/devices/logs/addApiIXM"  # Update with your actual API endpoint
+        response = requests.get(api_endpoint)
+        if response.status_code == 200:
+            transaction_logs = response.json()
+            return transaction_logs
+        else:
+            logging.error(f"Failed to fetch transaction logs from API. Status code: {response.status_code}")
+            create_log_app_file(device, f"Failed to fetch transaction logs from API. Status code: {response.status_code}")
+    except Exception as ex:
+        logging.error(f"Error fetching transaction logs from API: {ex}")
+        create_log_app_file(device, f"Error fetching transaction logs from API: {ex}")
+    return []
+
+def post_log_to_api(log, device):
+    API_ENDPOINT = "http://localhost:8000/attendance/devices/logs/addApiIXM"
+    data = {
+        'user_id': log.UserRecordId,
+        "check_date": log.check_date,
+        "check_time": log.check_time
+    }
+    try:
+        r = requests.post(url=API_ENDPOINT, data=data)
+        if r.status_code == 200:
+            print(f"Successfully posted log to API: {data}")
+            create_log_app_file(device, f"Successfully posted log to API: {data}")
+        else:
+            logging.error(f"Failed to post log to API. Status code: {r.status_code}")
+            create_log_app_file(device, f"Failed to post log to API. Status code: {r.status_code}")
+    except Exception as ex:
+        logging.error(f"Error posting log to API: {ex}")
+        create_log_app_file(device, f"Error posting log to API: {ex}")
 
 def main():
     start_time = datetime.datetime.now()
-    logging.info(f"Script started at {start_time}")
+    logging.info(f"{'-' * 5}Script started at {start_time}{'-' * 5}")
 
     if not os.path.exists(Config.LOGS_FOLDER):
         os.makedirs(Config.LOGS_FOLDER)
@@ -148,27 +204,31 @@ def main():
     for ip_address, port in zip(Config.DEVICE_IPS, Config.DEVICE_PORTS):
         device = setup_device(ip_address, port)
         if check_device_status(device):
-            conn = NetworkConnection(device)
-            try:
-                conn.OpenConnection()
-                logs = get_transaction_logs(conn, device, start_date_dotnet, end_date_dotnet)
-                log_file_name = f"{ip_address}_{port}_{end_date.strftime('%d_%m_%Y_%H_%M_%S')}.txt"
-                log_file_path = os.path.join(Config.LOGS_FOLDER, log_file_name)
-
-                with open(log_file_path, 'w') as writer:
+            if get_data_fromTXTfile == 0:
+                logs = get_transaction_logs_from_api(device, None)
+                for log in logs:
+                    post_log_to_api(log, device)  # Only call this function when API is used
+            else:
+                conn = NetworkConnection(device)
+                try:
+                    conn.OpenConnection()
+                    logs = get_transaction_logs(conn, device, start_date_dotnet, end_date_dotnet)
+                    conn.CloseConnection()
+                except Exception as ex:
+                    logging.error(f"Error in main function: {ex}", exc_info=True)
+                if get_data_fromTXTfile == 0:
                     for log in logs:
-                        writer.write(f"{log.UserRecordId};{log.check_date};{log.check_time}\n")
+                        post_log_to_api(log, device)  # Only call this function when API is used
 
-                # Log the return values
-                logging.info(f"DeviceConfig: {device}")
-                logging.info(f"TransactionLogData: {logs}")
-            except Exception as ex:
-                logging.error(f"Error in main function: {ex}", exc_info=True)
-            finally:
-                conn.CloseConnection()
+            # Create a log folder for the IP address with timestamp
+            log_folder = create_log_folder(ip_address)
+            # Create a log file for the retrieved logs
+            create_txt_log_file(log_folder, logs)
+            # Create the app.log file within the same folder
+            create_log_app_file(log_folder, device)
 
     end_time = datetime.datetime.now()
-    logging.info(f"Script finished at {end_time}")
+    logging.info(f"{'-' * 5}Script finished at {end_time}{'-' * 5}")
     logging.info(f"Total execution time: {end_time - start_time}")
 
     if not Config.AUTO_CLOSE:
