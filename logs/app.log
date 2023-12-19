@@ -1,25 +1,317 @@
-2023-12-18 14:13:35,368 - INFO - -----Script started at 2023-12-18 14:13:35.368986-----
-2023-12-18 14:13:35,453 - INFO - Successfully connected to 192.168.200.80:9734
-2023-12-18 14:13:35,453 - INFO - Network Status: Connected
-2023-12-18 14:13:35,453 - INFO - Network Status: Connected
-2023-12-18 14:13:35,520 - INFO - Successfully connected to 192.168.200.80:9734
-2023-12-18 14:13:35,520 - INFO - Network Status: Connected
-2023-12-18 14:13:39,600 - ERROR - Error fetching transaction logs from API: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /attendance/devices/logs/addApiIXM (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B21D4E6110>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
-2023-12-18 14:13:48,747 - INFO - -----Script started at 2023-12-18 14:13:48.747097-----
-2023-12-18 14:13:48,811 - INFO - Successfully connected to 192.168.200.80:9734
-2023-12-18 14:13:48,811 - INFO - Network Status: Connected
-2023-12-18 14:13:48,811 - INFO - Network Status: Connected
-2023-12-18 14:13:48,877 - INFO - Successfully connected to 192.168.200.80:9734
-2023-12-18 14:13:48,877 - INFO - Network Status: Connected
-2023-12-18 14:13:50,154 - INFO - Successfully connected to 192.168.200.85:9734
-2023-12-18 14:13:50,154 - INFO - Network Status: Connected
-2023-12-18 14:13:50,154 - INFO - Network Status: Connected
-2023-12-18 14:13:50,304 - INFO - Successfully connected to 192.168.200.85:9734
-2023-12-18 14:13:50,304 - INFO - Network Status: Connected
-2023-12-18 14:13:50,996 - INFO - Successfully connected to 192.168.200.143:9734
-2023-12-18 14:13:50,996 - INFO - Network Status: Connected
-2023-12-18 14:13:50,996 - INFO - Network Status: Connected
-2023-12-18 14:13:51,406 - INFO - Successfully connected to 192.168.200.143:9734
-2023-12-18 14:13:51,406 - INFO - Network Status: Connected
-2023-12-18 14:13:51,596 - INFO - -----Script finished at 2023-12-18 14:13:51.596836-----
-2023-12-18 14:13:51,596 - INFO - Total execution time: 0:00:02.849739
+2023-12-18 17:23:53,953 - INFO - -----Script started at 2023-12-18 17:23:53.953013-----
+2023-12-18 17:23:54,202 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 17:23:54,202 - INFO - Network Status: Connected
+2023-12-18 17:23:54,202 - INFO - Network Status: Connected
+2023-12-18 17:23:54,258 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 17:23:54,258 - INFO - Network Status: Connected
+2023-12-18 17:23:55,458 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-18 17:23:55,458 - INFO - Network Status: Connected
+2023-12-18 17:23:55,458 - INFO - Network Status: Connected
+2023-12-18 17:23:55,518 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-18 17:23:55,518 - INFO - Network Status: Connected
+2023-12-18 17:23:56,380 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-18 17:23:56,380 - INFO - Network Status: Connected
+2023-12-18 17:23:56,380 - INFO - Network Status: Connected
+2023-12-18 17:23:56,433 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-18 17:23:56,433 - INFO - Network Status: Connected
+2023-12-18 17:23:56,624 - INFO - -----Script finished at 2023-12-18 17:23:56.624879-----
+2023-12-18 17:23:56,624 - INFO - Total execution time: 0:00:02.671866
+2023-12-18 17:24:00,623 - INFO - -----Script started at 2023-12-18 17:24:00.623133-----
+2023-12-18 17:24:00,688 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 17:24:00,688 - INFO - Network Status: Connected
+2023-12-18 17:24:00,688 - INFO - Network Status: Connected
+2023-12-18 17:24:00,739 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 17:24:00,739 - INFO - Network Status: Connected
+2023-12-18 17:24:01,868 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-18 17:24:01,868 - INFO - Network Status: Connected
+2023-12-18 17:24:01,868 - INFO - Network Status: Connected
+2023-12-18 17:24:01,918 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-18 17:24:01,918 - INFO - Network Status: Connected
+2023-12-18 17:24:02,853 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-18 17:24:02,853 - INFO - Network Status: Connected
+2023-12-18 17:24:02,853 - INFO - Network Status: Connected
+2023-12-18 17:24:02,943 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-18 17:24:02,943 - INFO - Network Status: Connected
+2023-12-18 17:24:03,163 - INFO - -----Script finished at 2023-12-18 17:24:03.163544-----
+2023-12-18 17:24:03,163 - INFO - Total execution time: 0:00:02.540411
+2023-12-18 17:24:27,291 - INFO - -----Script started at 2023-12-18 17:24:27.291894-----
+2023-12-18 17:24:27,386 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 17:24:27,386 - INFO - Network Status: Connected
+2023-12-18 17:24:27,386 - INFO - Network Status: Connected
+2023-12-18 17:24:27,443 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 17:24:27,443 - INFO - Network Status: Connected
+2023-12-18 17:25:34,200 - INFO - -----Script started at 2023-12-18 17:25:34.200459-----
+2023-12-18 17:25:34,295 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 17:25:34,295 - INFO - Network Status: Connected
+2023-12-18 17:25:34,295 - INFO - Network Status: Connected
+2023-12-18 17:25:34,342 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 17:25:34,342 - INFO - Network Status: Connected
+2023-12-18 17:32:09,431 - INFO - -----Script started at 2023-12-18 17:32:09.431840-----
+2023-12-18 17:32:09,615 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 17:32:09,615 - INFO - Network Status: Connected
+2023-12-18 17:32:09,615 - INFO - Network Status: Connected
+2023-12-18 17:32:09,659 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 17:32:09,659 - INFO - Network Status: Connected
+2023-12-18 17:34:16,416 - INFO - -----Script started at 2023-12-18 17:34:16.416771-----
+2023-12-18 17:34:16,543 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 17:34:16,543 - INFO - Network Status: Connected
+2023-12-18 17:34:16,543 - INFO - Network Status: Connected
+2023-12-18 17:34:16,670 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 17:34:16,670 - INFO - Network Status: Connected
+2023-12-18 17:35:16,599 - INFO - -----Script started at 2023-12-18 17:35:16.599295-----
+2023-12-18 17:35:16,673 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 17:35:16,673 - INFO - Network Status: Connected
+2023-12-18 17:35:16,673 - INFO - Network Status: Connected
+2023-12-18 17:35:16,749 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-18 17:35:16,749 - INFO - Network Status: Connected
+2023-12-18 17:35:18,094 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-18 17:35:18,094 - INFO - Network Status: Connected
+2023-12-18 17:35:18,094 - INFO - Network Status: Connected
+2023-12-18 17:35:18,218 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-18 17:35:18,218 - INFO - Network Status: Connected
+2023-12-18 17:35:19,101 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-18 17:35:19,105 - INFO - Network Status: Connected
+2023-12-18 17:35:19,105 - INFO - Network Status: Connected
+2023-12-18 17:35:19,155 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-18 17:35:19,155 - INFO - Network Status: Connected
+2023-12-18 17:35:19,360 - INFO - -----Script finished at 2023-12-18 17:35:19.360468-----
+2023-12-18 17:35:19,360 - INFO - Total execution time: 0:00:02.761173
+2023-12-19 07:37:25,780 - INFO - -----Script started at 2023-12-19 07:37:25.780236-----
+2023-12-19 07:37:25,882 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 07:37:25,883 - INFO - Network Status: Connected
+2023-12-19 07:37:25,883 - INFO - Network Status: Connected
+2023-12-19 07:37:25,954 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 07:37:25,955 - INFO - Network Status: Connected
+2023-12-19 07:37:26,725 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-19 07:37:26,725 - INFO - Network Status: Connected
+2023-12-19 07:37:26,725 - INFO - Network Status: Connected
+2023-12-19 07:37:26,810 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-19 07:37:26,810 - INFO - Network Status: Connected
+2023-12-19 07:37:27,312 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-19 07:37:27,312 - INFO - Network Status: Connected
+2023-12-19 07:37:27,312 - INFO - Network Status: Connected
+2023-12-19 07:37:27,380 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-19 07:37:27,380 - INFO - Network Status: Connected
+2023-12-19 07:37:27,596 - INFO - -----Script finished at 2023-12-19 07:37:27.596717-----
+2023-12-19 07:37:27,596 - INFO - Total execution time: 0:00:01.816481
+2023-12-19 07:38:12,741 - INFO - -----Script started at 2023-12-19 07:38:12.740750-----
+2023-12-19 07:38:12,802 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 07:38:12,802 - INFO - Network Status: Connected
+2023-12-19 07:38:12,802 - INFO - Network Status: Connected
+2023-12-19 07:38:12,869 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 07:38:12,870 - INFO - Network Status: Connected
+2023-12-19 07:40:05,963 - INFO - -----Script started at 2023-12-19 07:40:05.963849-----
+2023-12-19 07:40:06,049 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 07:40:06,049 - INFO - Network Status: Connected
+2023-12-19 07:40:06,049 - INFO - Network Status: Connected
+2023-12-19 07:40:06,097 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 07:40:06,097 - INFO - Network Status: Connected
+2023-12-19 07:42:00,347 - INFO - -----Script started at 2023-12-19 07:42:00.347914-----
+2023-12-19 07:42:00,395 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 07:42:00,395 - INFO - Network Status: Connected
+2023-12-19 07:42:00,395 - INFO - Network Status: Connected
+2023-12-19 07:42:00,454 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 07:42:00,454 - INFO - Network Status: Connected
+2023-12-19 07:47:03,279 - INFO - -----Script started at 2023-12-19 07:47:03.279092-----
+2023-12-19 07:47:03,344 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 07:47:03,345 - INFO - Network Status: Connected
+2023-12-19 07:47:03,345 - INFO - Network Status: Connected
+2023-12-19 07:47:03,385 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 07:47:03,385 - INFO - Network Status: Connected
+2023-12-19 07:47:41,640 - INFO - -----Script started at 2023-12-19 07:47:41.640396-----
+2023-12-19 07:47:41,719 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 07:47:41,719 - INFO - Network Status: Connected
+2023-12-19 07:47:41,719 - INFO - Network Status: Connected
+2023-12-19 07:47:41,797 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 07:47:41,797 - INFO - Network Status: Connected
+2023-12-19 07:47:42,618 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-19 07:47:42,619 - INFO - Network Status: Connected
+2023-12-19 07:47:42,619 - INFO - Network Status: Connected
+2023-12-19 07:47:42,687 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-19 07:47:42,687 - INFO - Network Status: Connected
+2023-12-19 07:47:43,221 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-19 07:47:43,221 - INFO - Network Status: Connected
+2023-12-19 07:47:43,221 - INFO - Network Status: Connected
+2023-12-19 07:47:43,297 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-19 07:47:43,297 - INFO - Network Status: Connected
+2023-12-19 07:51:28,362 - INFO - -----Script started at 2023-12-19 07:51:28.362947-----
+2023-12-19 07:51:28,427 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 07:51:28,427 - INFO - Network Status: Connected
+2023-12-19 07:51:28,427 - INFO - Network Status: Connected
+2023-12-19 07:51:28,476 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 07:51:28,477 - INFO - Network Status: Connected
+2023-12-19 07:51:29,243 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-19 07:51:29,243 - INFO - Network Status: Connected
+2023-12-19 07:51:29,243 - INFO - Network Status: Connected
+2023-12-19 07:51:29,299 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-19 07:51:29,300 - INFO - Network Status: Connected
+2023-12-19 07:51:29,820 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-19 07:51:29,821 - INFO - Network Status: Connected
+2023-12-19 07:51:29,821 - INFO - Network Status: Connected
+2023-12-19 07:51:29,872 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-19 07:51:29,872 - INFO - Network Status: Connected
+2023-12-19 07:51:30,066 - INFO - -----Script finished at 2023-12-19 07:51:30.066304-----
+2023-12-19 07:51:30,066 - INFO - Total execution time: 0:00:01.703357
+2023-12-19 07:53:02,870 - INFO - -----Script started at 2023-12-19 07:53:02.870274-----
+2023-12-19 07:53:40,022 - INFO - -----Script started at 2023-12-19 07:53:40.022423-----
+2023-12-19 07:53:40,096 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 07:53:40,096 - INFO - Network Status: Connected
+2023-12-19 07:53:40,096 - INFO - Network Status: Connected
+2023-12-19 07:53:40,149 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 07:53:40,149 - INFO - Network Status: Connected
+2023-12-19 07:53:40,931 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-19 07:53:40,932 - INFO - Network Status: Connected
+2023-12-19 07:53:40,932 - INFO - Network Status: Connected
+2023-12-19 07:53:40,977 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-19 07:53:40,977 - INFO - Network Status: Connected
+2023-12-19 07:53:41,502 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-19 07:53:41,502 - INFO - Network Status: Connected
+2023-12-19 07:53:41,502 - INFO - Network Status: Connected
+2023-12-19 07:53:41,560 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-19 07:53:41,561 - INFO - Network Status: Connected
+2023-12-19 07:53:41,790 - INFO - -----Script finished at 2023-12-19 07:53:41.790158-----
+2023-12-19 07:53:41,790 - INFO - Total execution time: 0:00:01.767735
+2023-12-19 08:03:35,557 - INFO - -----Script started at 2023-12-19 08:03:35.557187-----
+2023-12-19 08:03:35,649 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 08:03:35,649 - INFO - Network Status: Connected
+2023-12-19 08:03:35,649 - INFO - Network Status: Connected
+2023-12-19 08:03:35,708 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 08:03:35,708 - INFO - Network Status: Connected
+2023-12-19 08:03:36,513 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-19 08:03:36,513 - INFO - Network Status: Connected
+2023-12-19 08:03:36,513 - INFO - Network Status: Connected
+2023-12-19 08:03:36,563 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-19 08:03:36,563 - INFO - Network Status: Connected
+2023-12-19 08:03:37,096 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-19 08:03:37,096 - INFO - Network Status: Connected
+2023-12-19 08:03:37,096 - INFO - Network Status: Connected
+2023-12-19 08:03:37,156 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-19 08:03:37,156 - INFO - Network Status: Connected
+2023-12-19 08:03:37,325 - INFO - -----Script finished at 2023-12-19 08:03:37.325071-----
+2023-12-19 08:03:37,325 - INFO - Total execution time: 0:00:01.767884
+2023-12-19 08:03:50,512 - INFO - -----Script started at 2023-12-19 08:03:50.512435-----
+2023-12-19 08:03:50,594 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 08:03:50,594 - INFO - Network Status: Connected
+2023-12-19 08:03:50,594 - INFO - Network Status: Connected
+2023-12-19 08:03:50,643 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 08:03:50,643 - INFO - Network Status: Connected
+2023-12-19 08:03:51,459 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-19 08:03:51,459 - INFO - Network Status: Connected
+2023-12-19 08:03:51,459 - INFO - Network Status: Connected
+2023-12-19 08:03:51,508 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-19 08:03:51,508 - INFO - Network Status: Connected
+2023-12-19 08:03:52,086 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-19 08:03:52,086 - INFO - Network Status: Connected
+2023-12-19 08:03:52,086 - INFO - Network Status: Connected
+2023-12-19 08:03:52,134 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-19 08:03:52,134 - INFO - Network Status: Connected
+2023-12-19 08:03:52,357 - INFO - -----Script finished at 2023-12-19 08:03:52.357924-----
+2023-12-19 08:03:52,357 - INFO - Total execution time: 0:00:01.845489
+2023-12-19 08:13:41,741 - INFO - -----Script started at 2023-12-19 08:13:41.741350-----
+2023-12-19 08:13:41,772 - WARNING - Could not connect to 1:9
+2023-12-19 08:13:41,772 - INFO - Network Status: Not Connected
+2023-12-19 08:13:41,772 - INFO - Network Status: Not Connected
+2023-12-19 08:13:41,788 - WARNING - Could not connect to 1:9
+2023-12-19 08:13:41,788 - INFO - Network Status: Not Connected
+2023-12-19 08:13:41,818 - WARNING - Could not connect to 9:7
+2023-12-19 08:13:41,819 - INFO - Network Status: Not Connected
+2023-12-19 08:13:41,820 - INFO - Network Status: Not Connected
+2023-12-19 08:13:41,840 - WARNING - Could not connect to 9:7
+2023-12-19 08:13:41,840 - INFO - Network Status: Not Connected
+2023-12-19 08:13:41,862 - WARNING - Could not connect to 2:3
+2023-12-19 08:13:41,862 - INFO - Network Status: Not Connected
+2023-12-19 08:13:41,862 - INFO - Network Status: Not Connected
+2023-12-19 08:13:41,890 - WARNING - Could not connect to 2:3
+2023-12-19 08:13:41,890 - INFO - Network Status: Not Connected
+2023-12-19 08:13:42,750 - WARNING - Could not connect to .:4
+2023-12-19 08:13:42,750 - INFO - Network Status: Not Connected
+2023-12-19 08:13:42,750 - INFO - Network Status: Not Connected
+2023-12-19 08:13:43,624 - WARNING - Could not connect to .:4
+2023-12-19 08:13:43,624 - INFO - Network Status: Not Connected
+2023-12-19 08:13:43,657 - WARNING - Could not connect to 1:,
+2023-12-19 08:13:43,657 - INFO - Network Status: Not Connected
+2023-12-19 08:13:43,657 - INFO - Network Status: Not Connected
+2023-12-19 08:13:43,687 - WARNING - Could not connect to 1:,
+2023-12-19 08:13:43,687 - INFO - Network Status: Not Connected
+2023-12-19 08:13:43,712 - WARNING - Could not connect to 6:9
+2023-12-19 08:13:43,712 - INFO - Network Status: Not Connected
+2023-12-19 08:13:43,712 - INFO - Network Status: Not Connected
+2023-12-19 08:13:43,736 - WARNING - Could not connect to 6:9
+2023-12-19 08:13:43,736 - INFO - Network Status: Not Connected
+2023-12-19 08:13:43,760 - WARNING - Could not connect to 8:7
+2023-12-19 08:13:43,760 - INFO - Network Status: Not Connected
+2023-12-19 08:13:43,760 - INFO - Network Status: Not Connected
+2023-12-19 08:13:43,780 - WARNING - Could not connect to 8:7
+2023-12-19 08:13:43,780 - INFO - Network Status: Not Connected
+2023-12-19 08:13:44,640 - WARNING - Could not connect to .:3
+2023-12-19 08:13:44,640 - INFO - Network Status: Not Connected
+2023-12-19 08:13:44,640 - INFO - Network Status: Not Connected
+2023-12-19 08:13:45,503 - WARNING - Could not connect to .:3
+2023-12-19 08:13:45,503 - INFO - Network Status: Not Connected
+2023-12-19 08:13:45,529 - WARNING - Could not connect to 2:4
+2023-12-19 08:13:45,529 - INFO - Network Status: Not Connected
+2023-12-19 08:13:45,529 - INFO - Network Status: Not Connected
+2023-12-19 08:13:45,552 - WARNING - Could not connect to 2:4
+2023-12-19 08:13:45,552 - INFO - Network Status: Not Connected
+2023-12-19 08:13:45,572 - WARNING - Could not connect to 0:,
+2023-12-19 08:13:45,572 - INFO - Network Status: Not Connected
+2023-12-19 08:13:45,572 - INFO - Network Status: Not Connected
+2023-12-19 08:13:45,595 - WARNING - Could not connect to 0:,
+2023-12-19 08:13:45,595 - INFO - Network Status: Not Connected
+2023-12-19 08:13:45,619 - WARNING - Could not connect to 0:9
+2023-12-19 08:13:45,619 - INFO - Network Status: Not Connected
+2023-12-19 08:13:45,619 - INFO - Network Status: Not Connected
+2023-12-19 08:13:45,643 - WARNING - Could not connect to 0:9
+2023-12-19 08:13:45,643 - INFO - Network Status: Not Connected
+2023-12-19 08:13:46,494 - WARNING - Could not connect to .:7
+2023-12-19 08:13:46,494 - INFO - Network Status: Not Connected
+2023-12-19 08:13:46,494 - INFO - Network Status: Not Connected
+2023-12-19 08:13:47,375 - WARNING - Could not connect to .:7
+2023-12-19 08:13:47,375 - INFO - Network Status: Not Connected
+2023-12-19 08:13:47,417 - WARNING - Could not connect to 8:3
+2023-12-19 08:13:47,417 - INFO - Network Status: Not Connected
+2023-12-19 08:13:47,417 - INFO - Network Status: Not Connected
+2023-12-19 08:13:47,442 - WARNING - Could not connect to 8:3
+2023-12-19 08:13:47,442 - INFO - Network Status: Not Connected
+2023-12-19 08:13:47,459 - WARNING - Could not connect to 0:4
+2023-12-19 08:13:47,459 - INFO - Network Status: Not Connected
+2023-12-19 08:13:47,459 - INFO - Network Status: Not Connected
+2023-12-19 08:13:47,487 - WARNING - Could not connect to 0:4
+2023-12-19 08:13:47,487 - INFO - Network Status: Not Connected
+2023-12-19 08:13:47,488 - INFO - -----Script finished at 2023-12-19 08:13:47.488919-----
+2023-12-19 08:13:47,488 - INFO - Total execution time: 0:00:05.747569
+2023-12-19 08:14:10,978 - INFO - -----Script started at 2023-12-19 08:14:10.978005-----
+2023-12-19 08:15:33,237 - INFO - -----Script started at 2023-12-19 08:15:33.237986-----
+2023-12-19 08:15:33,307 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 08:15:33,307 - INFO - Network Status: Connected
+2023-12-19 08:15:33,307 - INFO - Network Status: Connected
+2023-12-19 08:15:33,357 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 08:15:33,357 - INFO - Network Status: Connected
+2023-12-19 08:15:34,102 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-19 08:15:34,102 - INFO - Network Status: Connected
+2023-12-19 08:15:34,103 - INFO - Network Status: Connected
+2023-12-19 08:15:34,158 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-19 08:15:34,158 - INFO - Network Status: Connected
+2023-12-19 08:15:34,685 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-19 08:15:34,685 - INFO - Network Status: Connected
+2023-12-19 08:15:34,685 - INFO - Network Status: Connected
+2023-12-19 08:15:34,737 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-19 08:15:34,738 - INFO - Network Status: Connected
+2023-12-19 08:15:34,912 - INFO - -----Script finished at 2023-12-19 08:15:34.912515-----
+2023-12-19 08:15:34,913 - INFO - Total execution time: 0:00:01.674529
+2023-12-19 08:19:41,312 - INFO - -----Script started at 2023-12-19 08:19:41.312519-----
+2023-12-19 08:19:41,387 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 08:19:41,387 - INFO - Network Status: Connected
+2023-12-19 08:19:41,387 - INFO - Network Status: Connected
+2023-12-19 08:19:41,458 - INFO - Successfully connected to 192.168.200.80:9734
+2023-12-19 08:19:41,458 - INFO - Network Status: Connected
+2023-12-19 08:19:42,269 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-19 08:19:42,269 - INFO - Network Status: Connected
+2023-12-19 08:19:42,269 - INFO - Network Status: Connected
+2023-12-19 08:19:42,321 - INFO - Successfully connected to 192.168.200.85:9734
+2023-12-19 08:19:42,321 - INFO - Network Status: Connected
+2023-12-19 08:19:42,927 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-19 08:19:42,927 - INFO - Network Status: Connected
+2023-12-19 08:19:42,927 - INFO - Network Status: Connected
+2023-12-19 08:19:43,018 - INFO - Successfully connected to 192.168.200.143:9734
+2023-12-19 08:19:43,018 - INFO - Network Status: Connected
