@@ -7,8 +7,11 @@ import os
 import sys
 import requests
 import sys
-load_dotenv()  # Load environment variables from the .env file
 
+# Load environment variables from the .env file
+load_dotenv()
+
+# Define global configuration variables
 get_data_from_env = os.getenv("get_data_from_env")
 AUTO_CLOSE = os.getenv("AUTO_CLOSE")
 insert_into_ERP = os.getenv("insert_into_ERP")
@@ -23,13 +26,13 @@ get_data_from_env = int(get_data_from_env)
 insert_into_ERP = insert_into_ERP.lower() == "true"
 CUSTOM_DATE_RANGE = CUSTOM_DATE_RANGE.lower() == "true"
 
+# Check if data should be retrieved from environment variables or user input
 if get_data_from_env == 1:
     DEVICE_IPS = os.getenv("DEVICE_IPS").split(",")
     DEVICE_PORTS = os.getenv("DEVICE_PORTS").split(",")
 elif get_data_from_env == 0:
     print("Please enter the IP addresses and ports of the devices you want to connect to from the system.")
     exit(1)
-
 
 # Add references to the required DLL files
 clr.AddReference('System')
@@ -40,7 +43,6 @@ clr.AddReference(os.path.join(dll_folder, 'IXMSoft.Business.Managers.dll'))
 clr.AddReference(os.path.join(dll_folder, 'IXMSoft.Business.SDK.dll'))
 clr.AddReference(os.path.join(dll_folder, 'IXMSoft.Common.Models.dll'))
 clr.AddReference(os.path.join(dll_folder, 'IXMSoft.Data.DataAccess.dll'))
-
 
 from System import DateTime
 from IXMSoft.Common.Models import TransactionLogArg, TransactionLog, Device
@@ -65,9 +67,9 @@ LOGS_FOLDER = os.path.join(BASE_DIR, 'logs')
 
 # Configure logging
 log_file_path = os.path.join(LOGS_FOLDER, 'app.log')
-logging.basicConfig(filename=log_file_path, level=logging.INFO,
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename=log_file_path, level=logging.INFO,format='%(asctime)s - %(levelname)s - %(message)s')
 
+# Function to check the status of a device
 def check_device_status(device):
     try:
         response = os.system(f"ping {device.IPaddress} -n 1")
@@ -90,6 +92,7 @@ def check_device_status(device):
         logging.error(f"Error checking device status: {ex}")
         return False
 
+# Function to create a log folder with a timestamp
 def create_log_folder(ip_address):
     timestamp = datetime.datetime.now()
     folder_name = f"{ip_address}_{timestamp.strftime('%Y-%m-%d_%H-%M-%S')}"
@@ -97,6 +100,7 @@ def create_log_folder(ip_address):
     os.makedirs(log_folder_path, exist_ok=True)
     return log_folder_path
 
+# Function to create a text log file for transaction logs
 def create_txt_log_file(log_folder, logs):
     txt_log_file_name = "transaction_logs.txt"  # Adjust the desired name for the txt file
     txt_log_file_path = os.path.join(log_folder, txt_log_file_name)
@@ -106,6 +110,7 @@ def create_txt_log_file(log_folder, logs):
         for log in logs:
             writer.write(f"{log.UserRecordId};{log.check_date};{log.check_time}\n")
 
+# Function to create an application log file
 def create_log_app_file(log_folder, device, additional_info=None):
     log_app_file_name = f"{device.IPaddress}_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
     log_app_file_path = os.path.join(log_folder, log_app_file_name)
@@ -116,6 +121,7 @@ def create_log_app_file(log_folder, device, additional_info=None):
         if additional_info:
             app_writer.write(f"{datetime.datetime.now()} - INFO - {additional_info}\n")
 
+# Function to retrieve transaction logs
 def get_transaction_logs(conn, device, start_date, end_date):
     transaction_log_arguments = TransactionLogArg()
     transaction_log_arguments.StartDate = start_date
@@ -150,6 +156,7 @@ def get_transaction_logs(conn, device, start_date, end_date):
 
     return transaction_logs
 
+# Function to set up a device
 def setup_device(ip_address, port):
     device = Device()
     device.IPaddress = ip_address
@@ -162,6 +169,7 @@ def setup_device(ip_address, port):
 
     return device
 
+# Function to post a log to ERP
 def post_log_to_ERP(log, device):
     data = {
         'user_id': log.UserRecordId,
@@ -175,6 +183,7 @@ def post_log_to_ERP(log, device):
     except Exception as ex:
         print(f"Error posting log to ERP: {ex}")
 
+# Main function to orchestrate the entire process
 def main():
     start_time = datetime.datetime.now()
     logging.info(f"{'-' * 5}Script started at {start_time}{'-' * 5}")
@@ -191,10 +200,8 @@ def main():
         end_date = datetime.datetime.now()
         start_date = end_date - datetime.timedelta(days=1)
 
-    start_date_dotnet = DateTime(start_date.year, start_date.month, start_date.day,
-                                 start_date.hour, start_date.minute, start_date.second)
-    end_date_dotnet = DateTime(end_date.year, end_date.month, end_date.day,
-                               end_date.hour, end_date.minute, end_date.second)
+    start_date_dotnet = DateTime(start_date.year, start_date.month, start_date.day, start_date.hour, start_date.minute, start_date.second)
+    end_date_dotnet = DateTime(end_date.year, end_date.month, end_date.day, end_date.hour, end_date.minute, end_date.second)
 
     # Create an empty list to store logs
     all_logs = []
